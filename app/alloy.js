@@ -17,4 +17,4 @@ var myApp = {
 
 console.log(Ti.App.Properties.getString("ti.facebook.appid"));
 myApp.facebook.appid = Ti.App.Properties.getString("ti.facebook.appid");
-myApp.facebook.permissions = [];
+myApp.facebook.permissions = ['email'];

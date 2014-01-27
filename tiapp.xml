@@ -51,7 +51,7 @@
     	<module platform="android">facebook</module>
     	<module platform="iphone">facebook</module>
 	</modules>
-	<property name="ti.facebook.appid">FACEBOOK_APP_ID</property>
+	<property name="ti.facebook.appid">270121529779377</property>
     <deployment-targets>
         <target device="android">true</target>
         <target device="blackberry">false</target>
