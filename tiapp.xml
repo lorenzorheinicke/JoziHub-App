@@ -8,9 +8,9 @@
     <description>not specified</description>
     <copyright>2014 by lorenzo</copyright>
     <icon>appicon.png</icon>
-    <fullscreen>false</fullscreen>
+    <fullscreen>true</fullscreen>
     <navbar-hidden>false</navbar-hidden>
-    <analytics>true</analytics>
+    <analytics>false</analytics>
     <guid>02e82232-4855-4e4e-86f0-9dd2cc4e8f04</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
@@ -47,7 +47,11 @@
         </splash>
         <theme>default</theme>
     </mobileweb>
-    <modules/>
+    <modules>
+    	<module platform="android">facebook</module>
+    	<module platform="iphone">facebook</module>
+	</modules>
+	<property name="ti.facebook.appid">FACEBOOK_APP_ID</property>
     <deployment-targets>
         <target device="android">true</target>
         <target device="blackberry">false</target>

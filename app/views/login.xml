@@ -1,0 +1,10 @@
+<Alloy>
+	<NavigationWindow>
+		<Window title="JoziHub Login" fullscreen="true">
+			<View layout="vertical" class="container">
+				<Label text="Login"></Label>
+				<LoginButton id="fbButton" ns="Alloy.Globals.Facebook"/>
+			</View>
+		</Window>
+	</NavigationWindow>
+</Alloy>
