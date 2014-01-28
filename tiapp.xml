@@ -48,9 +48,10 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-    	<module platform="android">facebook</module>
-    	<module platform="iphone">facebook</module>
-	</modules>
+    <module platform="android">facebook</module>
+    <module platform="iphone">facebook</module>
+    <module platform="iphone" version="1.0">com.elijahwindsor.parsemodule</module>
+  </modules>
 	<property name="ti.facebook.appid">270121529779377</property>
     <deployment-targets>
         <target device="android">true</target>

@@ -1,4 +1,37 @@
 function Controller() {
+    function parseRESTFBLogin(callback) {
+        var client = Ti.Network.createHTTPClient({
+            timeout: 5e3
+        });
+        client.onload = function() {
+            Ti.API.info("onload: " + this.responseText);
+            Ti.API.info("status: " + this.status + "\nstatustext: " + this.statusText);
+            Ti.API.info("parse.currentUser: " + myApp.parse.currentUser);
+            console.log("callback: " + typeof callback);
+            if ("undefined" == typeof callback) {
+                alert("hello");
+                return;
+            }
+            callback();
+        };
+        client.onerror = function(e) {
+            Ti.API.info("onerror: " + JSON.strinigfy(e));
+        };
+        client.open("POST", "https://api.parse.com/1/users");
+        var authData = {
+            authData: {
+                facebook: {
+                    id: myApp.facebook.uid,
+                    access_token: myApp.facebook.accessToken,
+                    expiration_date: myApp.facebook.expirationDate
+                }
+            }
+        };
+        client.setRequestHeader("X-Parse-Application-Id", "5J3HfUVCwzRgCLSNYI86fLmSLowAxKJhiBj2xqWO");
+        client.setRequestHeader("X-Parse-REST-API-Key", "cskMYRCr6TCdRWfYL1PFHmzA4yYTTluAipAz2w2F");
+        client.setRequestHeader("Content-Type", "application/json");
+        client.send(JSON.stringify(authData));
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "login";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
@@ -41,6 +74,10 @@ function Controller() {
     Ti.API.info("Login screen...");
     myApp.facebook.addEventListener("login", function(e) {
         Ti.API.info("login event: " + JSON.stringify(e));
+        e.success ? parseRESTFBLogin() : e.error ? alert(e.error) : e.cancelled && alert("Cancelled");
+    });
+    $.login.addEventListener("app:closelogin", function() {
+        $.login.close();
     });
     _.extend($, exports);
 }
