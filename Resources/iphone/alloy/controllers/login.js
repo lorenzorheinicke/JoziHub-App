@@ -6,7 +6,7 @@ function Controller() {
         client.onload = function() {
             Ti.API.info("onload: " + this.responseText);
             Ti.API.info("status: " + this.status + "\nstatustext: " + this.statusText);
-            Ti.API.info("parse.currentUser: " + myApp.parse.currentUser);
+            Ti.API.info("parse.currentUser: " + JSON.stringify(myApp.parse.currentUser));
             console.log("callback: " + typeof callback);
             if ("undefined" == typeof callback) {
                 alert("hello");

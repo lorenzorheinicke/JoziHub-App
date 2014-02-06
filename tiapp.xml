@@ -52,7 +52,7 @@
     <module platform="iphone">facebook</module>
     <module platform="iphone" version="1.0">com.elijahwindsor.parsemodule</module>
   </modules>
-	<property name="ti.facebook.appid">270121529779377</property>
+	<property name="ti.facebook.appid">226518950805596</property>
     <deployment-targets>
         <target device="android">true</target>
         <target device="blackberry">false</target>
